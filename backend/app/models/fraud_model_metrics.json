@@ -1,0 +1,21 @@
+{
+  "n_train": 227845,
+  "n_train_after_smote": 454902,
+  "n_test": 56962,
+  "test_fraud_count": 98,
+  "precision_fraud": 0.7478260869565218,
+  "recall_fraud": 0.8775510204081632,
+  "f1_fraud": 0.8075117370892019,
+  "roc_auc": 0.9813719522699345,
+  "avg_precision": 0.8719307795264357,
+  "confusion_matrix": [
+    [
+      56835,
+      29
+    ],
+    [
+      12,
+      86
+    ]
+  ]
+}

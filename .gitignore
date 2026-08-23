@@ -8,3 +8,4 @@ backend/app/models/*.pkl
 node_modules/
 .next/
 frontend/.env.local
+*.log
