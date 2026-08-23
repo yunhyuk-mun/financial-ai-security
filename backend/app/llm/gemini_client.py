@@ -3,7 +3,7 @@ import os
 from google import genai
 
 _API_KEY = os.environ.get("GEMINI_API_KEY")
-_MODEL_NAME = "gemini-2.0-flash"
+_MODEL_NAME = "gemini-3.6-flash"
 
 _client: genai.Client | None = None
 
