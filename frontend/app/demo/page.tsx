@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   analyzeMessage,
   generateRedteamSample,
@@ -22,6 +22,7 @@ export default function DemoPage() {
   const [rounds, setRounds] = useState<Round[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const autoRunTriggered = useRef(false);
 
   function patchFirst(patch: Partial<Round>) {
     setRounds((r) => {
@@ -49,6 +50,13 @@ export default function DemoPage() {
     }
   }
 
+  useEffect(() => {
+    if (autoRunTriggered.current) return;
+    autoRunTriggered.current = true;
+    runRound();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 flex flex-col gap-6">
       <div>
@@ -56,7 +64,7 @@ export default function DemoPage() {
         <p className="text-slate-400 mt-1 text-sm">
           레드팀 AI가 그 자리에서 새로운 금융 사기 샘플을 만들어내고, 블루팀 AI가
           그것을 즉시 탐지합니다. (샘플은 데모 전용 가상 콘텐츠이며 실제 인물/기관과
-          무관합니다)
+          무관합니다) 아래 예시는 페이지에 들어오면 자동으로 한 번 실행됩니다.
         </p>
       </div>
 
