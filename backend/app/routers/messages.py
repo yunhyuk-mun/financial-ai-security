@@ -1,7 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from app.llm.gemini_client import generate_json
+from app.rate_limit import enforce_rate_limit
 
 router = APIRouter()
 
@@ -41,7 +42,7 @@ class MessageResponse(BaseModel):
     red_flags: list[str]
 
 
-@router.post("/analyze", response_model=MessageResponse)
+@router.post("/analyze", response_model=MessageResponse, dependencies=[Depends(enforce_rate_limit)])
 def analyze_message(req: MessageRequest):
     result = generate_json(_PROMPT.format(text=req.text), _SCHEMA)
     return MessageResponse(**result)

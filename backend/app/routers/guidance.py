@@ -1,7 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from app.llm.gemini_client import generate_json
+from app.rate_limit import enforce_rate_limit
 
 router = APIRouter()
 
@@ -34,7 +35,7 @@ class GuidanceResponse(BaseModel):
     steps: list[str]
 
 
-@router.post("/", response_model=GuidanceResponse)
+@router.post("/", response_model=GuidanceResponse, dependencies=[Depends(enforce_rate_limit)])
 def get_guidance(req: GuidanceRequest):
     result = generate_json(
         _PROMPT.format(risk_score=req.risk_score, context=req.context), _SCHEMA

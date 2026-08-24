@@ -41,23 +41,28 @@ export default function Home() {
       <section className="border-b border-slate-800 bg-gradient-to-b from-slate-900/60 to-transparent">
         <div className="mx-auto max-w-2xl px-6 py-12 text-center flex flex-col items-center gap-3">
           <span className="text-xs font-medium tracking-wide text-sky-400 uppercase">
-            AI Red Team vs AI Blue Team
+            2-Layer AI Defense
           </span>
           <h1 className="text-3xl font-bold">AI 금융보안 비서</h1>
-          <p className="text-slate-400 text-sm max-w-md">
-            생성형 AI가 만든 사기를 생성형 AI로 잡아냅니다. 받은 문자·투자
-            리딩방 홍보·카카오톡 메시지를 붙여넣으면 위험도와 대응 요령을
-            즉시 알려드려요.
+          <p className="text-slate-400 text-sm max-w-lg">
+            사기는 두 지점에서 막을 수 있습니다 — 사기 문자가{" "}
+            <b className="text-slate-200">도달하는 순간</b>, 그리고 속아서{" "}
+            <b className="text-slate-200">돈이 실제로 움직이려는 순간</b>. 이
+            서비스는 이 두 방어선을 각각 다른 AI로 지킵니다.
           </p>
-          <div className="flex flex-wrap justify-center gap-2 text-xs text-slate-400 mt-1">
-            <span className="rounded-full border border-slate-700 px-3 py-1">이상거래 탐지</span>
-            <span className="rounded-full border border-slate-700 px-3 py-1">AI 생성 사기 판별</span>
-            <span className="rounded-full border border-slate-700 px-3 py-1">맞춤 대응 가이드</span>
-          </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-2xl w-full px-6 py-10 flex flex-col gap-6">
+        <div className="flex items-center gap-3">
+          <span className="shrink-0 text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-500/30 rounded-full px-3 py-1">
+            1차 방어선 · 커뮤니케이션 레벨
+          </span>
+          <span className="text-xs text-slate-500">
+            사기 문자·메시지가 도달한 그 순간 판별합니다
+          </span>
+        </div>
+
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -130,9 +135,21 @@ export default function Home() {
           </div>
         )}
 
-        <div className="border-t border-slate-800 pt-6">
-          <TransactionDemo />
+        <div className="flex items-center gap-3 text-xs text-slate-500 py-2">
+          <div className="flex-1 border-t border-dashed border-slate-800" />
+          <span>1차 방어선을 뚫고 속아 넘어갔다고 해도</span>
+          <div className="flex-1 border-t border-dashed border-slate-800" />
         </div>
+
+        <div className="flex items-center gap-3">
+          <span className="shrink-0 text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-3 py-1">
+            2차 방어선 · 거래 레벨
+          </span>
+          <span className="text-xs text-slate-500">
+            실제 결제·이체가 발생하는 순간을 최후 저지선으로 지킵니다
+          </span>
+        </div>
+        <TransactionDemo />
       </div>
     </div>
   );

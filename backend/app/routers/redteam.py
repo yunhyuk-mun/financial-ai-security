@@ -1,9 +1,10 @@
 import random
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from app.llm.gemini_client import generate_json
+from app.rate_limit import enforce_rate_limit
 
 router = APIRouter()
 
@@ -37,7 +38,7 @@ class RedteamGenerateResponse(BaseModel):
     attack_type: str
 
 
-@router.post("/generate", response_model=RedteamGenerateResponse)
+@router.post("/generate", response_model=RedteamGenerateResponse, dependencies=[Depends(enforce_rate_limit)])
 def generate_sample():
     attack_type = random.choice(_ATTACK_TYPES)
     result = generate_json(_PROMPT.format(attack_type=attack_type), _SCHEMA)
