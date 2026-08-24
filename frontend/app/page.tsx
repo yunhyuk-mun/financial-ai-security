@@ -39,12 +39,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="border-b border-slate-800 bg-gradient-to-b from-slate-900/60 to-transparent">
-        <div className="mx-auto max-w-2xl px-6 py-12 text-center flex flex-col items-center gap-3">
+      <section className="relative border-b border-slate-800 bg-grid overflow-hidden">
+        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <div className="relative mx-auto max-w-2xl px-6 py-16 text-center flex flex-col items-center gap-3">
           <span className="text-xs font-medium tracking-wide text-sky-400 uppercase">
             2-Layer AI Defense
           </span>
-          <h1 className="text-3xl font-bold">AI 금융보안 비서</h1>
+          <h1 className="text-4xl font-black tracking-tight bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent pb-1">
+            AI 금융보안 비서
+          </h1>
           <p className="text-slate-400 text-sm max-w-lg">
             사기는 두 지점에서 막을 수 있습니다 — 사기 문자가{" "}
             <b className="text-slate-200">도달하는 순간</b>, 그리고 속아서{" "}

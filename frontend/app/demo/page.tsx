@@ -61,24 +61,29 @@ export default function DemoPage() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-10 flex flex-col gap-6">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold">레드팀 vs 블루팀 라이브 데모</h1>
-          <p className="text-slate-400 mt-1 text-sm max-w-xl">
-            레드팀 AI가 그 자리에서 새로운 금융 사기 샘플을 만들어내고, 블루팀 AI가
-            그것을 즉시 탐지합니다. (샘플은 데모 전용 가상 콘텐츠이며 실제 인물/기관과
-            무관합니다) 아래 예시는 페이지에 들어오면 자동으로 한 번 실행됩니다.
-          </p>
-        </div>
-        {rounds.length > 0 && (
-          <div className="shrink-0 text-right rounded-xl border border-slate-800 bg-slate-900 px-4 py-3">
-            <div className="text-2xl font-black text-sky-400 tabular-nums">{detectedCount}</div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wide">건 탐지됨</div>
+    <div className="flex flex-col">
+      <section className="relative border-b border-slate-800 bg-grid overflow-hidden">
+        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <div className="relative mx-auto max-w-4xl px-6 py-10 flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <span className="text-xs font-medium tracking-wide text-orange-400 uppercase">Live Simulation</span>
+            <h1 className="text-2xl font-black tracking-tight mt-1">레드팀 vs 블루팀 라이브 데모</h1>
+            <p className="text-slate-400 mt-1 text-sm max-w-xl">
+              레드팀 AI가 그 자리에서 새로운 금융 사기 샘플을 만들어내고, 블루팀 AI가
+              그것을 즉시 탐지합니다. (샘플은 데모 전용 가상 콘텐츠이며 실제 인물/기관과
+              무관합니다) 아래 예시는 페이지에 들어오면 자동으로 한 번 실행됩니다.
+            </p>
           </div>
-        )}
-      </div>
+          {rounds.length > 0 && (
+            <div className="shrink-0 text-right rounded-xl border border-slate-800 bg-slate-900/80 backdrop-blur px-4 py-3 shadow-lg">
+              <div className="text-2xl font-black text-sky-400 tabular-nums">{detectedCount}</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wide">건 탐지됨</div>
+            </div>
+          )}
+        </div>
+      </section>
 
+      <div className="mx-auto max-w-4xl w-full px-6 py-8 flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <button
           onClick={runRound}
@@ -165,6 +170,7 @@ export default function DemoPage() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
