@@ -7,6 +7,7 @@ import {
   type MessageAnalysis,
   type Guidance,
 } from "@/lib/api";
+import Link from "next/link";
 import { RiskGauge, riskColorHex } from "@/components/RiskGauge";
 import { LoadingPulse } from "@/components/LoadingPulse";
 import { TransactionDemo } from "@/components/TransactionDemo";
@@ -50,6 +51,16 @@ export default function Home() {
             <b className="text-slate-200">돈이 실제로 움직이려는 순간</b>. 이
             서비스는 이 두 방어선을 각각 다른 AI로 지킵니다.
           </p>
+          <Link
+            href="/demo"
+            className="mt-2 inline-flex items-center gap-2 rounded-full bg-sky-500 hover:bg-sky-400 text-white px-5 py-2.5 text-sm font-semibold transition-colors shadow-lg shadow-sky-500/20"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+            </span>
+            AI가 공격을 만들고 잡는 걸 실시간으로 보기 →
+          </Link>
         </div>
       </section>
 
