@@ -9,6 +9,7 @@ import {
 } from "@/lib/api";
 import { RiskGauge, riskColorHex } from "@/components/RiskGauge";
 import { LoadingPulse } from "@/components/LoadingPulse";
+import { TransactionDemo } from "@/components/TransactionDemo";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -48,6 +49,11 @@ export default function Home() {
             리딩방 홍보·카카오톡 메시지를 붙여넣으면 위험도와 대응 요령을
             즉시 알려드려요.
           </p>
+          <div className="flex flex-wrap justify-center gap-2 text-xs text-slate-400 mt-1">
+            <span className="rounded-full border border-slate-700 px-3 py-1">이상거래 탐지</span>
+            <span className="rounded-full border border-slate-700 px-3 py-1">AI 생성 사기 판별</span>
+            <span className="rounded-full border border-slate-700 px-3 py-1">맞춤 대응 가이드</span>
+          </div>
         </div>
       </section>
 
@@ -123,6 +129,10 @@ export default function Home() {
             </ol>
           </div>
         )}
+
+        <div className="border-t border-slate-800 pt-6">
+          <TransactionDemo />
+        </div>
       </div>
     </div>
   );
