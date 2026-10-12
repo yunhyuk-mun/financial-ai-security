@@ -2,7 +2,7 @@
 
 2026 금융 AI Challenge 제출작. 생성형 AI가 만든 금융사기(딥페이크 투자 리딩방, AI 생성 피싱 문자)를 AI로 탐지하는 웹서비스.
 
-**Live demo**: https://financial-ai-security.vercel.app
+**Live demo**: https://financial-ai-security.vercel.app (프론트만 상시 공개. 백엔드는 대회 기간 무료 서버에 올렸던 것이라 지금은 응답하지 않을 수 있다. 아래 '실행'으로 로컬에서 돌릴 수 있다.)
 **기획서 / 기능명세서**: [`docs/기획서.md`](docs/기획서.md), [`docs/기능명세서.md`](docs/기능명세서.md)
 
 ## 핵심 아이디어
